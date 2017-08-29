@@ -1,1 +1,105 @@
+body {
+  background-color: #29353b;
+  color: #eee;
+  margin: 25px 5px;
+}
 
+.clearfix {
+  clear: both;
+  display: block;
+}
+
+.brand {
+  text-align: center;
+  font-size: 1.25em;
+  margin: 5% auto;
+}
+
+h1.brand {
+  font-size: 1.75em;
+}
+
+.brand a {
+  color: #007acc;
+}
+
+
+/*Controls layout*/
+
+.controls {
+  width: 260px;
+  margin: 25px auto;
+}
+
+.controls .left-column {
+  width: 50%;
+  float: left;
+}
+
+.controls .right-column {
+  width: 50%;
+  float: right;
+}
+
+.controls button {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: #222d32;
+  cursor: pointer;
+  outline: none;
+  margin: 0 5px;
+  font-weight: bold;
+  border: none;
+  background-color: #007acc;
+  box-shadow: 0 0 3px #000;
+  border-radius: 50%;
+  transition: box-shadow, transform 0.25s ease-out;
+}
+
+.controls button:hover {
+  box-shadow: 0 0 5px #000;
+}
+
+.controls button:active {
+  transform: scale(0.8);
+}
+
+
+/*Clock body*/
+
+.clock {
+  color: #222d32;
+  width: 250px;
+  height: 250px;
+  padding: 25px;
+  margin: 25px auto;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 0 0 1px #222;
+  background-color: #007acc;
+  box-shadow: 0 0 10px #222;
+  border-radius: 50%;
+  transition: box-shadow, transform 0.25s ease-out;
+}
+
+.clock:hover {
+  box-shadow: 0 0 20px #222;
+}
+
+.clock:active {
+  box-shadow: 0 0 5px #222;
+  transform: scale(0.9);
+}
+
+.clock.active {
+  border-color: #99cc00;
+}
+
+.clock .title {
+  font-size: 3em;
+}
+
+.clock .time {
+  font-size: 4em;
+}
