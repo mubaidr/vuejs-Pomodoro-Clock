@@ -18,7 +18,15 @@ var myApp = new Vue({
     setInterval(this.updateTime, 1000)
   },
   mounted () {},
-  watch: {},
+  watch: {
+    'isActive' (val) {
+      if (val) {
+        this.startClock()
+      } else {
+        this.stopClock()
+      }
+    }
+  },
   computed: {
     activeMode () {
       return this.modes[this.activeModeId]
@@ -42,10 +50,13 @@ var myApp = new Vue({
     },
     toggleClock () {
       this.isActive = !this.isActive
-      this.startClock()
     },
     startClock () {
-
+      // this.intervalID = setInterval
+    },
+    stopClock () {
+      this.activeModeId = 0
+      clearInterval(this.intervalID)
     },
     setNextMode () {
       if (this.activeModeId++ > (this.modes.length - 1)) {

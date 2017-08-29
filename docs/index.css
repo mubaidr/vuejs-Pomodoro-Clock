@@ -115,7 +115,7 @@
     transform: scale(1.05)
   }
 
-  .clock:active {
+  .clock {
     box-shadow: 0 0 5px #222;
     transform: scale(0.95);
   }
@@ -127,11 +127,7 @@
     left: 0;
     bottom: 0;
     background-color: #3e50b4;
-    transition: top 0.5s ease-out;
-  }
-
-  .clock.active .bck-fill {
-    opacity: 1;
+    transition: height 0.5s ease-out;
   }
 
   .clock .title,
