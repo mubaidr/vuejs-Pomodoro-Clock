@@ -19,21 +19,26 @@
           <button title="Decrease break time by one minute" @click="setBreak(-1)">-</button> Break
           <button title="Increase break time by one minute" @click="setBreak(1)">+</button>
           <br/>
-          <span>{{duration.break}}</span>
+          <span>{{duration.break}} min</span>
         </div>
         <div class="right-column">
           <button title="Decrease session time by one minute" @click="setSession(-1)">-</button> Session
           <button title="Increase session time by one minute" @click="setSession(1)">+</button>
           <br/>
-          <span>{{duration.session}}</span>
+          <span>{{duration.session}} min</span>
         </div>
         <div class="clearfix"></div>
       </div>
       <div class="clearfix"></div>
-      <div class="clock" title="Pause/Resume clock">
+      <div @click="toggleClock" class="clock" title="Pause/Resume clock">
         <div class="bck-fill"></div>
-        <h2 class="title">{{title}}</h2>
-        <h3 class="time">{{time}}</h3>
+        <template v-if="isActive">
+          <h2 class="title">{{activeMode}}</h2>
+          <h3 class="time">{{remainingTime}}</h3>
+        </template>
+        <template v-else>
+          <h3 class="time">{{dateNow}}</h3>
+        </template>
       </div>
 
       <h2 class="brand">Designed and Coded by <a href="https://github.com/mubaidr">mubaidr</a></h2>
