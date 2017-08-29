@@ -3,16 +3,24 @@ Vue.config.productionTip = false
 // eslint-disable-next-line
 var myApp = new Vue({
   el: '#app',
-  data: {},
+  data: {
+    title: 'Session',
+    time: '12:39',
+    duration: {
+      break: 15,
+      session: 30
+    }
+  },
   created () {},
   mounted () {},
   watch: {},
   computed: {},
   methods: {
-    /**
-     * @description Handles click event on digits, functions and operators
-     * @param {any} e Click event
-     */
-    handleClick (e) {}
+    setBreak (val) {
+      this.duration.break += val
+    },
+    setSession (val) {
+      this.duration.session += val
+    }
   }
 })

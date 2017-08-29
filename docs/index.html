@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.js Pomodoro-Clock</title>
     <link type="text/css" href="./index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
   </head>
 
   <body>
@@ -15,19 +16,24 @@
 
       <div class="controls">
         <div class="left-column">
-          <button>-</button> Break
-          <button>+</button>
+          <button title="Decrease break time by one minute" @click="setBreak(-1)">-</button> Break
+          <button title="Increase break time by one minute" @click="setBreak(1)">+</button>
+          <br/>
+          <span>{{duration.break}}</span>
         </div>
         <div class="right-column">
-          <button>-</button> Session
-          <button>+</button>
+          <button title="Decrease session time by one minute" @click="setSession(-1)">-</button> Session
+          <button title="Increase session time by one minute" @click="setSession(1)">+</button>
+          <br/>
+          <span>{{duration.session}}</span>
         </div>
         <div class="clearfix"></div>
       </div>
       <div class="clearfix"></div>
-      <div class="clock">
-        <h2 class="title">Session</h2>
-        <h3 class="time">56:29</h3>
+      <div class="clock" title="Pause/Resume clock">
+        <div class="bck-fill"></div>
+        <h2 class="title">{{title}}</h2>
+        <h3 class="time">{{time}}</h3>
       </div>
 
       <h2 class="brand">Designed and Coded by <a href="https://github.com/mubaidr">mubaidr</a></h2>

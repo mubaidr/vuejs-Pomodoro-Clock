@@ -1,106 +1,151 @@
-body {
-  background-color: #29353b;
-  color: #eee;
-  margin: 25px 5px;
-}
+  body {
+    background-color: #303f9e;
+    color: #c4c9e8;
+    margin: 5px;
+    font-family: 'Dancing Script', cursive;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome and Opera */
+  }
 
-.clearfix {
-  clear: both;
-  display: block;
-}
+  .clearfix {
+    clear: both;
+    display: block;
+  }
 
-.brand {
-  text-align: center;
-  font-size: 1.25em;
-  margin: 5% auto;
-}
+  .brand {
+    text-align: center;
+    font-size: 1.25em;
+    margin: 5% auto;
+  }
 
-h1.brand {
-  font-size: 1.75em;
-}
+  h1.brand {
+    font-size: 3em;
+    color: #fff;
+  }
 
-.brand a {
-  color: #007acc;
-}
+  h2.brand {
+    margin-bottom: 25px;
+  }
 
+  .brand a {
+    color: #c4c9e8;
+  }
 
-/*Controls layout*/
+  .brand a:hover {
+    color: #fff;
+  }
+  /*Controls layout*/
 
-.controls {
-  width: 260px;
-  margin: 25px auto;
-}
+  .controls {
+    width: 300px;
+    margin: 25px auto;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+  }
 
-.controls .left-column {
-  width: 50%;
-  float: left;
-}
+  .controls .left-column {
+    width: 50%;
+    float: left;
+  }
 
-.controls .right-column {
-  width: 50%;
-  float: right;
-}
+  .controls .right-column {
+    width: 50%;
+    float: right;
+  }
 
-.controls button {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  color: #222d32;
-  cursor: pointer;
-  outline: none;
-  margin: 0 5px;
-  font-weight: bold;
-  border: none;
-  background-color: #007acc;
-  box-shadow: 0 0 3px #000;
-  border-radius: 50%;
-  transition: box-shadow, transform 0.25s ease-out;
-}
+  .controls button {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    margin: 0 4px;
+    font-size: 1.5em;
+    font-weight: normal;
+    border: none;
+    background-color: #e81e62;
+    transition: all 0.25s ease-out;
+    /* box-shadow: 0 0 3px #222; */
+  }
 
-.controls button:hover {
-  box-shadow: 0 0 5px #000;
-}
+  .controls button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px #222;
+  }
 
-.controls button:active {
-  transform: scale(0.8);
-}
+  .controls button:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 1px #222;
+  }
+  /*Clock body*/
 
+  .clock {
+    color: #e81e62;
+    font-weight: bold;
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+    margin: 25px auto;
+    margin-top: 50px;
+    cursor: pointer;
+    text-align: center;
+    border: 10px solid #e81e62;
+    /* box-shadow: 0 0 10px #222; */
+    background-color: #fefefe;
+    border-radius: 50%;
+    transition: all 0.25s ease-out;
+    position: relative;
+    overflow: hidden;
+  }
 
-/*Clock body*/
+  .clock:hover {
+    box-shadow: 0 0 20px #222;
+    transform: scale(1.05)
+  }
 
-.clock {
-  color: #007acc;
-  width: 250px;
-  height: 250px;
-  padding: 25px;
-  margin: 25px auto;
-  cursor: pointer;
-  text-align: center;
-  text-shadow: 0 0 1px #222;
-  /* background-color: #007acc; */
-  border: 3px solid #007acc;
-  box-shadow: 0 0 10px #222;
-  border-radius: 50%;
-  transition: box-shadow, transform 0.25s ease-out;
-}
+  .clock:active {
+    box-shadow: 0 0 5px #222;
+    transform: scale(0.95);
+  }
 
-.clock:hover {
-  box-shadow: 0 0 20px #222;
-}
+  .clock .bck-fill {
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background-color: #3e50b4;
+    transition: top 0.5s ease-out;
+  }
 
-.clock:active {
-  box-shadow: 0 0 5px #222;
-  transform: scale(0.9);
-}
+  .clock.active .bck-fill {
+    opacity: 1;
+  }
 
-.clock.active {
-  border-color: #99cc00;
-}
+  .clock .title,
+  .clock .time {
+    position: relative;
+    z-index: 999;
+    /* text-shadow: 0 0 1px #000; */
+  }
 
-.clock .title {
-  font-size: 3em;
-}
+  .clock .title {
+    font-size: 3em;
+    margin-bottom: 0;
+  }
 
-.clock .time {
-  font-size: 4em;
-}
+  .clock .time {
+    font-size: 4em;
+  }
