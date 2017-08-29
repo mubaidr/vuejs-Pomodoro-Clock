@@ -69,7 +69,7 @@ h1.brand {
 /*Clock body*/
 
 .clock {
-  color: #222d32;
+  color: #007acc;
   width: 250px;
   height: 250px;
   padding: 25px;
@@ -77,7 +77,8 @@ h1.brand {
   cursor: pointer;
   text-align: center;
   text-shadow: 0 0 1px #222;
-  background-color: #007acc;
+  /* background-color: #007acc; */
+  border: 3px solid #007acc;
   box-shadow: 0 0 10px #222;
   border-radius: 50%;
   transition: box-shadow, transform 0.25s ease-out;
