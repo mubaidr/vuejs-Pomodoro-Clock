@@ -16,16 +16,16 @@
 
       <div class="controls">
         <div class="left-column">
-          <button title="Decrease break time by one minute" @click="setBreak(-1)">-</button> Break
+          <button title="Decrease break time by one minute" @click="setBreak(-1)">-</button>{{duration.break}}
           <button title="Increase break time by one minute" @click="setBreak(1)">+</button>
           <br/>
-          <span>{{duration.break}} min</span>
+          <span class="title">Break</span>
         </div>
         <div class="right-column">
-          <button title="Decrease session time by one minute" @click="setSession(-1)">-</button> Session
+          <button title="Decrease session time by one minute" @click="setSession(-1)">-</button>{{duration.session}}
           <button title="Increase session time by one minute" @click="setSession(1)">+</button>
           <br/>
-          <span>{{duration.session}} min</span>
+          <span class="title">Session</span>
         </div>
         <div class="clearfix"></div>
       </div>

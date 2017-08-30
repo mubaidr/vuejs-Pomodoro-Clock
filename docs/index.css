@@ -31,6 +31,7 @@
   h1.brand {
     font-size: 3em;
     color: #fff;
+    margin-bottom: 0;
   }
 
   h2.brand {
@@ -62,6 +63,12 @@
   .controls .right-column {
     width: 50%;
     float: right;
+  }
+
+  .controls .title {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.5em;
   }
 
   .controls button {
