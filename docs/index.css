@@ -102,10 +102,9 @@
     cursor: pointer;
     text-align: center;
     border: 10px solid #e81e62;
-    /* box-shadow: 0 0 10px #222; */
     background-color: #fefefe;
     border-radius: 50%;
-    transition: all 0.25s ease-out;
+    transition: all 0.5s ease-out;
     position: relative;
     overflow: hidden;
   }
@@ -115,7 +114,7 @@
     transform: scale(1.05)
   }
 
-  .clock {
+  .clock:active {
     box-shadow: 0 0 5px #222;
     transform: scale(0.95);
   }
@@ -134,7 +133,6 @@
   .clock .time {
     position: relative;
     z-index: 999;
-    /* text-shadow: 0 0 1px #000; */
   }
 
   .clock .title {
@@ -144,4 +142,15 @@
 
   .clock .time {
     font-size: 4em;
+  }
+  /*clock mode themes*/
+
+  .clock.active.session {
+    color: #fe5722;
+    border-color: #fe5722;
+  }
+
+  .clock.active.break {
+    color: #4caf50;
+    border-color: #4caf50;
   }

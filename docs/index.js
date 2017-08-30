@@ -8,9 +8,13 @@ var myApp = new Vue({
       break: 15,
       session: 30
     },
+    remainingTime: {
+      minutes: 0,
+      seconds: 0
+    },
     modes: ['Session', 'Break'],
     activeModeId: 0,
-    isActive: true,
+    isActive: false,
     dateNow: '',
     intervalID: null
   },
@@ -20,19 +24,39 @@ var myApp = new Vue({
   mounted () {},
   watch: {
     'isActive' (val) {
+      // resetclock mode
+      this.activeModeId = 0
       if (val) {
         this.startClock()
       } else {
         this.stopClock()
       }
+    },
+    'remainingTime.seconds' (val) {
+      // handle minute update when second changes
+      if (val === 59) {
+        this.remainingTime.minutes -= 1
+      } else if (val === 0) {
+        if (this.remainingTime.minutes === 0) {
+          // update mode when time ends for current
+          this.setNextMode()
+        }
+      }
+    },
+    'activeModeId' () {
+      // when mode changes, re-start the clock
+      this.startClock()
     }
   },
   computed: {
     activeMode () {
       return this.modes[this.activeModeId]
     },
-    remainingTime () {
+    displayTime () {
+      let m = this.remainingTime.minutes
+      let s = this.remainingTime.seconds
 
+      return (m < 10 ? '0' + m.toString() : m) + ':' + (s < 10 ? '0' + s.toString() : s)
     }
   },
   methods: {
@@ -49,21 +73,34 @@ var myApp = new Vue({
       this.isActive = false
     },
     toggleClock () {
+      // toggle clock state on clock click
       this.isActive = !this.isActive
     },
     startClock () {
-      // this.intervalID = setInterval
+      // set initial time
+      this.remainingTime.minutes = this.duration[this.modes[this.activeModeId].toLowerCase()]
+      this.remainingTime.seconds = 0
+
+      clearInterval(this.intervalID)
+      this.intervalID = setInterval(() => {
+        if (--this.remainingTime.seconds < 0) {
+          this.remainingTime.seconds = 59
+        }
+      }, 1000)
     },
     stopClock () {
+      // clear interval and mode
       this.activeModeId = 0
       clearInterval(this.intervalID)
     },
     setNextMode () {
-      if (this.activeModeId++ > (this.modes.length - 1)) {
+      // move to next mode
+      if (++this.activeModeId > (this.modes.length - 1)) {
         this.activeModeId = 0
       }
     },
     updateTime () {
+      // display current time when clock not active
       this.dateNow = new Date(new Date().getTime()).toLocaleTimeString()
     }
   }
