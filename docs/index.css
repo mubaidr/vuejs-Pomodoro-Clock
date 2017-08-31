@@ -133,7 +133,7 @@
     left: 0;
     bottom: 0;
     background-color: #3e50b4;
-    transition: height 0.5s ease-out;
+    transition: height 1s linear;
   }
 
   .clock .title,

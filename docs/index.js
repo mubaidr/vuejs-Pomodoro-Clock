@@ -5,8 +5,8 @@ var myApp = new Vue({
   el: '#app',
   data: {
     duration: {
-      break: 15,
-      session: 30
+      break: 1,
+      session: 1
     },
     remainingTime: {
       minutes: 0,
@@ -49,6 +49,11 @@ var myApp = new Vue({
     }
   },
   computed: {
+    bckFillHeight () {
+      let totalSeconds = this.duration[this.modes[this.activeModeId].toLowerCase()] * 60
+      let remSeconds = this.remainingTime.minutes * 60 + this.remainingTime.seconds
+      return `height: ${100 - ((remSeconds * 100) / totalSeconds)}%`
+    },
     activeMode () {
       return this.modes[this.activeModeId]
     },
